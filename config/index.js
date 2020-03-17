@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    //为了让后端能够访问到前端的资源，需要配置跨域支持。
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -54,7 +63,7 @@ module.exports = {
     devtool: '#source-map',
 
     // Gzip off by default as many popular static hosts such as
-    // Surge or Netlify already gzip all static assets for you.
+    // Surge or Netlify already gzip all static assets for you.proxyTable
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
