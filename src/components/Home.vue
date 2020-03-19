@@ -1,6 +1,6 @@
 <template>
   <div>
-    //注意这里使用的标签
+    <!--注意这里使用的标签-->
     <nav-menu></nav-menu>
     <router-view/>
   </div>
